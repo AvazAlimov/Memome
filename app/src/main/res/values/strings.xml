@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Memome</string>
+
+    <string name="intro_one">Keep your memories</string>
+    <string name="intro_one_text">
+        Store your memories digitally.
+        Organize them by adding labels to them.
+        Labels are quickly accessible in the main menu.
+    </string>
+
+    <string name="intro_two">Synchronize with all your devices</string>
+    <string name="intro_two_text">
+        Real time synchronization for all your connected devices.
+        Manage your memories easily and globally.
+    </string>
+
+    <string name="intro_three">Access anytime and anywhere</string>
+    <string name="intro_three_text">
+        Cloud based storage for your memories.
+        Today, you have more ways to access them.
+    </string>
+
 </resources>
