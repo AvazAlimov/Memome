@@ -12,7 +12,7 @@ import java.util.Locale;
 public class LocaleManager {
     private static String LANGUAGE_KEY = "LANGUAGE_KEY";
 
-    static Context setLocale(Context context) {
+    public static Context setLocale(Context context) {
         String savedLanguage = getLanguage(context);
         return savedLanguage == null ? context : updateResources(context, savedLanguage);
     }

@@ -1,4 +1,4 @@
-package uz.nasiba.avaz.memome.database.entity;
+package uz.nasiba.avaz.memome.db.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -10,5 +10,5 @@ public class User {
     @NonNull
     @PrimaryKey
     @ColumnInfo(name = "uid")
-    public String uid;
+    public String uid = "";
 }

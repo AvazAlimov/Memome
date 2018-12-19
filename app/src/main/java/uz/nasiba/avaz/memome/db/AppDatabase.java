@@ -1,13 +1,13 @@
-package uz.nasiba.avaz.memome.database;
+package uz.nasiba.avaz.memome.db;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
-import uz.nasiba.avaz.memome.database.entity.User;
+import uz.nasiba.avaz.memome.db.entity.User;
 
 @Database(entities = {
         User.class
 }, version = 1, exportSchema = false)
-public abstract class AppDatabase extends RoomDatabase {
+abstract class AppDatabase extends RoomDatabase {
 
 }

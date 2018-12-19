@@ -13,7 +13,7 @@
         android:padding="16dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/intro_box" />
+        app:lottie_rawRes="@raw/intro_one" />
 
     <TextView
         android:id="@+id/title"
@@ -34,5 +34,14 @@
         android:fontFamily="sans-serif"
         android:textAlignment="center"
         android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/finish"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/finish"
+        android:visibility="invisible" />
 
 </LinearLayout>
