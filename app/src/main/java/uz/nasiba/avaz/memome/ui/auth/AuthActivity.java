@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import uz.nasiba.avaz.memome.R;
+import uz.nasiba.avaz.memome.ui.auth.signup.SignUpFragment;
 
 public class AuthActivity extends AppCompatActivity {
     @Override
