@@ -26,9 +26,9 @@
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress"
-                    android:text="@={viewmodel.email}" />
+                    android:hint="@string/username"
+                    android:inputType="text"
+                    android:text="@={viewmodel.username}" />
 
             </android.support.design.widget.TextInputLayout>
 
