@@ -10,5 +10,20 @@ public class AuthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, new SignUpFragment())
+                .addToBackStack("signup")
+                .commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
+            moveTaskToBack(true);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
