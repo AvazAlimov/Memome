@@ -1,10 +1,10 @@
 package uz.nasiba.avaz.memome.ui.auth;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import uz.nasiba.avaz.memome.R;
-import uz.nasiba.avaz.memome.ui.auth.signup.SignUpFragment;
+import uz.nasiba.avaz.memome.ui.auth.signin.SignInFragment;
 
 public class AuthActivity extends AppCompatActivity {
     @Override
@@ -14,8 +14,8 @@ public class AuthActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.container, new SignUpFragment())
-                .addToBackStack("signup")
+                .replace(R.id.container, new SignInFragment())
+                .addToBackStack("signin")
                 .commit();
     }
 

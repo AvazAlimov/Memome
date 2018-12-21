@@ -8,4 +8,7 @@ import uz.nasiba.avaz.memome.db.room.entity.User;
 public interface AccountService {
     @POST("accounts/signup")
     Call<User> signup(@Body User user);
+
+    @POST("accounts/signin")
+    Call<User> signin(@Body User user);
 }
