@@ -3,7 +3,9 @@ package uz.nasiba.avaz.memome.ui.menu;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,6 +24,7 @@ import uz.nasiba.avaz.memome.R;
 import uz.nasiba.avaz.memome.db.room.entity.User;
 import uz.nasiba.avaz.memome.ui.auth.AuthActivity;
 import uz.nasiba.avaz.memome.ui.menu.settings.SettingsFragment;
+import uz.nasiba.avaz.memome.utils.LocaleManager;
 
 public class MenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private MenuViewModel viewModel;
@@ -47,7 +50,10 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onChanged(@Nullable User user) {
                 if (user != null) {
-                    ((TextView) findViewById(R.id.username_title)).setText(user.getUsername());
+                    TextView username = findViewById(R.id.username_title);
+                    if (username != null) {
+                        username.setText(user.getUsername());
+                    }
                 } else {
                     Intent intent = new Intent(getApplicationContext(), AuthActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -98,5 +104,16 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
     private void changeFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LocaleManager.setLocale(base));
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LocaleManager.setLocale(this);
     }
 }

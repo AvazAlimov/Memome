@@ -1,6 +1,8 @@
 package uz.nasiba.avaz.memome.ui.intro;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 
 import uz.nasiba.avaz.memome.R;
 import uz.nasiba.avaz.memome.ui.auth.AuthActivity;
+import uz.nasiba.avaz.memome.utils.LocaleManager;
 
 public class IntroActivity extends AppCompatActivity {
     private int index = 0;
@@ -86,5 +89,16 @@ public class IntroActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AuthActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LocaleManager.setLocale(base));
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LocaleManager.setLocale(this);
     }
 }
