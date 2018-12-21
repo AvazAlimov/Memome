@@ -4,7 +4,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF59D"
+    android:background="#FBC02D"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".ui.auth.AuthActivity" />
