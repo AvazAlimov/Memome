@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 
 import uz.nasiba.avaz.memome.R;
 import uz.nasiba.avaz.memome.databinding.FragmentSignupBinding;
+import uz.nasiba.avaz.memome.ui.auth.AuthActivity;
+import uz.nasiba.avaz.memome.ui.auth.signin.SignInFragment;
 
 public class SignUpFragment extends Fragment {
     private FragmentSignupBinding binding;
@@ -34,6 +36,13 @@ public class SignUpFragment extends Fragment {
                     .get(SignUpViewModel.class);
             binding.setViewmodel(viewModel);
             binding.setLifecycleOwner(this);
+
+            binding.getRoot().findViewById(R.id.signin).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((AuthActivity) getActivity()).switchFragments(new SignInFragment());
+                }
+            });
 
             viewModel.error.observe(this, new Observer<String>() {
                 @Override

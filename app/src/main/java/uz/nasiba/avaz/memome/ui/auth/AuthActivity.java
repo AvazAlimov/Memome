@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 import uz.nasiba.avaz.memome.R;
@@ -36,20 +37,27 @@ public class AuthActivity extends AppCompatActivity {
         });
 
         setContentView(R.layout.activity_auth);
+        switchFragments(new SignInFragment());
+    }
+
+    public void switchFragments(Fragment fragment) {
+        for (Fragment item : getSupportFragmentManager().getFragments()) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+                    .remove(item)
+                    .commit();
+        }
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.container, new SignInFragment())
-                .addToBackStack("signin")
+                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+                .add(R.id.container, fragment)
                 .commit();
     }
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
-            moveTaskToBack(true);
-        } else {
-            super.onBackPressed();
-        }
+        moveTaskToBack(true);
     }
 
     @Override

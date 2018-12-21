@@ -12,8 +12,14 @@ import uz.nasiba.avaz.memome.di.AppModule;
 
 class SignUpRepository {
     MutableLiveData<String> error = new MutableLiveData<>();
+    MutableLiveData<Boolean> loading = new MutableLiveData<>();
+
+    SignUpRepository() {
+        loading.setValue(false);
+    }
 
     void signup(final AppModule module, final User user) {
+        loading.setValue(true);
         Call<User> call = module.getRetrofit().getAccountService().signup(user);
         call.enqueue(new Callback<User>() {
             @Override
@@ -27,11 +33,13 @@ class SignUpRepository {
                 } else {
                     error.setValue(response.message());
                 }
+                loading.setValue(false);
             }
 
             @Override
             public void onFailure(@NonNull Call<User> call, @NonNull Throwable t) {
                 error.setValue(t.getMessage());
+                loading.setValue(false);
             }
         });
     }

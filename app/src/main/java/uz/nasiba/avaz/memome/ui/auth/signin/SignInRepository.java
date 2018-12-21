@@ -2,7 +2,6 @@ package uz.nasiba.avaz.memome.ui.auth.signin;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -12,9 +11,14 @@ import uz.nasiba.avaz.memome.di.AppModule;
 
 class SignInRepository {
     MutableLiveData<String> error = new MutableLiveData<>();
+    MutableLiveData<Boolean> loading = new MutableLiveData<>();
+
+    SignInRepository() {
+        loading.setValue(false);
+    }
 
     void signin(final AppModule module, final User user) {
-        Log.e("signin: ", "Processing");
+        loading.setValue(true);
         Call<User> call = module.getRetrofit().getAccountService().signin(user);
         call.enqueue(new Callback<User>() {
             @Override
@@ -22,17 +26,18 @@ class SignInRepository {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         user.setUid(response.body().getUid());
-                        long id = module.getDatabase().getUserDao().insert(user);
-                        Log.e("onResponse: ", id + "");
+                        module.getDatabase().getUserDao().insert(user);
                     }
                 } else {
                     error.setValue(response.message());
                 }
+                loading.setValue(false);
             }
 
             @Override
             public void onFailure(@NonNull Call<User> call, @NonNull Throwable t) {
-
+                loading.setValue(false);
+                error.setValue(t.getMessage());
             }
         });
     }

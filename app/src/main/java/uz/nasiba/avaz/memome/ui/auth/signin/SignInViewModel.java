@@ -15,16 +15,16 @@ public class SignInViewModel extends ObservableViewModel {
     private SignInRepository repository;
     @Bindable
     public MutableLiveData<String> username = new MutableLiveData<>();
-
     @Bindable
     public MutableLiveData<String> password = new MutableLiveData<>();
-
+    public LiveData<Boolean> loading;
     LiveData<String> error;
 
     public SignInViewModel(Application application) {
         super(application);
         repository = new SignInRepository();
         error = repository.error;
+        loading = repository.loading;
 
         username.setValue("alimov");
         password.setValue("avaz23");

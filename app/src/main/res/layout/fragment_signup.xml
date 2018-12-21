@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <import type="android.view.View" />
 
         <variable
             name="viewmodel"
@@ -17,7 +20,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:gravity="center"
             android:orientation="vertical">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/biking_is_cool" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -50,7 +61,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="@{() -> viewmodel.signUp()}"
-                android:text="@string/sign_up" />
+                android:text="@string/sign_up"
+                android:textSize="18sp"
+                android:visibility="@{safeUnbox(viewmodel.loading) ? View.GONE : View.VISIBLE}" />
+
+            <ProgressBar
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:visibility="@{safeUnbox(viewmodel.loading) ? View.VISIBLE : View.GONE}" />
+
+            <Button
+                android:id="@+id/signin"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/already_have_an_account"
+                android:textAllCaps="false" />
 
         </LinearLayout>
 

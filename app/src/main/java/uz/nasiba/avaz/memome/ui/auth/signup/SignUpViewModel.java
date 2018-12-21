@@ -18,13 +18,14 @@ public class SignUpViewModel extends ObservableViewModel {
 
     @Bindable
     public MutableLiveData<String> password = new MutableLiveData<>();
-
+    public LiveData<Boolean> loading;
     LiveData<String> error;
 
     public SignUpViewModel(Application application) {
         super(application);
         repository = new SignUpRepository();
         error = repository.error;
+        loading = repository.loading;
     }
 
     public void signUp() {

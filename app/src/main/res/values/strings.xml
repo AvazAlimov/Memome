@@ -45,4 +45,5 @@
     <string name="uzbek" translatable="false">O\'zbekcha</string>
     <string name="russian" translatable="false">Русский</string>
     <string name="do_not_have_an_account">Do not have an account?</string>
+    <string name="already_have_an_account">Already have an account?</string>
 </resources>
