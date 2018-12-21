@@ -1,4 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Memome</string>
+
+    <string name="intro_one">Сохраняйте свои воспоминания</string>
+    <string name="intro_one_text">
+        Храните свои воспоминания в цифровом виде.
+        Организуйте их, добавив к ним ярлыки.
+        Ярлыки быстро доступны в главном меню.
+    </string>
+
+    <string name="intro_two">Синхронизировать со всеми вашими устройствами</string>
+    <string name="intro_two_text">
+        Синхронизация в реальном времени для всех подключенных устройств.
+        Управляйте своими воспоминаниями легко и глобально.
+    </string>
+
+    <string name="intro_three">Доступ в любое время и в любом месте</string>
+    <string name="intro_three_text">
+        Облачное хранилище для ваших воспоминаний.
+        Сегодня у вас есть больше способов получить к ним доступ.
+    </string>
+    <string name="finish">Перейти</string>
+    <string name="previous">предыдущий</string>
+    <string name="next">дальше</string>
+
+    <string name="username">Имя пользователя</string>
+    <string name="password">Пароль</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="sign_in">Войти</string>
+    <string name="navigation_drawer_open">Открыть навигационный ящик</string>
+    <string name="navigation_drawer_close">Закрыть навигационный ящик</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Заголовок навигации</string>
+    <string name="action_settings">Настройки</string>
+    <string name="memories">Воспоминания</string>
+    <string name="labels">Ярлыки</string>
+    <string name="archives">Архив</string>
+    <string name="settings">Настройки</string>
+    <string name="logout">Выйти</string>
+
+    <string name="language">Язык</string>
+    <string name="do_not_have_an_account">Еще не регистрировались?</string>
 </resources>

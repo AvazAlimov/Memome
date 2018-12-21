@@ -1,4 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Memome</string>
+
+    <string name="intro_one">Xotiralaringizni saqlang</string>
+    <string name="intro_one_text">
+        Xotirangizni raqamli shaklda saqlang.
+        Ularga teglar qo\'shib ularni tashkil qiling.
+        Qisqa yorliqlar asosiy menyuda mavjud.
+    </string>
+
+    <string name="intro_two">Barcha qurilmalaringiz bilan sinxronlang</string>
+    <string name="intro_two_text">
+        Barcha ulangan qurilmalar uchun real vaqtda sinxronizatsiya.
+        Xotirangizni osongina va global tarzda boshqaring.
+    </string>
+
+    <string name="intro_three">Istalgan vaqtda, istalgan joyga kirish</string>
+    <string name="intro_three_text">
+        Xotiralaringiz uchun bulutli saqlash.
+        Bugungi kunda ularga kirish uchun ko'proq usullar mavjud.
+    </string>
+    <string name="finish">O\'tish</string>
+    <string name="previous">Ortga</string>
+    <string name="next">Keyingi</string>
+
+    <string name="username">Foydalanuvchi nomi</string>
+    <string name="password">Parol</string>
+    <string name="sign_up">Ro\'yxatdan o\'tish</string>
+    <string name="sign_in">Kirish</string>
+    <string name="navigation_drawer_open">Navigatsiya oynasini ochish</string>
+    <string name="navigation_drawer_close">Navigatsiya oynasini yopish</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigatsiya sarlavhasi</string>
+    <string name="action_settings">Qurilmalar</string>
+    <string name="memories">Xotiralar</string>
+    <string name="labels">Yorliqlar</string>
+    <string name="archives">Arxiv</string>
+    <string name="settings">Qurilmalar</string>
+    <string name="logout">Chiqish</string>
+
+    <string name="language">Til tanlash</string>
+    <string name="do_not_have_an_account">Ro\'yxatdan o\'tmaganmisiz?</string>
 </resources>
