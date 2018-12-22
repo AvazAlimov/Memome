@@ -5,7 +5,6 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -14,10 +13,9 @@ import java.util.ArrayList;
 
 @Entity(tableName = "memories")
 public class Memory implements Serializable {
-    @NonNull
     @PrimaryKey
     @ColumnInfo(name = "id")
-    private String id = "";
+    private long id = 0;
 
     @Ignore
     @SerializedName("account")
@@ -42,7 +40,7 @@ public class Memory implements Serializable {
     @Ignore
     private ArrayList<Uri> uris;
 
-    public void setId(@NonNull String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -70,8 +68,7 @@ public class Memory implements Serializable {
         this.uris = uris;
     }
 
-    @NonNull
-    public String getId() {
+    public long getId() {
         return id;
     }
 

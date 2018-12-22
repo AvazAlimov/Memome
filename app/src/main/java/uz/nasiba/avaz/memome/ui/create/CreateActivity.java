@@ -14,6 +14,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 
@@ -24,6 +25,7 @@ import java.util.Locale;
 
 import uz.nasiba.avaz.memome.R;
 import uz.nasiba.avaz.memome.databinding.ActivityCreateBinding;
+import uz.nasiba.avaz.memome.db.room.entity.Memory;
 import uz.nasiba.avaz.memome.utils.LocaleManager;
 
 public class CreateActivity extends AppCompatActivity {
@@ -44,6 +46,23 @@ public class CreateActivity extends AppCompatActivity {
         binding.setLifecycleOwner(this);
         setContentView(binding.getRoot());
         init();
+
+        if (getIntent().getExtras() != null) {
+            Memory memory = (Memory) getIntent().getSerializableExtra("memory");
+            viewModel.id = memory.getId();
+            viewModel.title.setValue(memory.getTitle());
+            viewModel.content.setValue(memory.getContent());
+            if (memory.getDate() != null && !memory.getDate().equals("")) {
+                viewModel.date.setValue(memory.getDate());
+            }
+            if (memory.getPictures().size() > 0) {
+                ArrayList<Uri> uris = new ArrayList<>();
+                for (String picture : memory.getPictures()) {
+                    uris.add(Uri.parse(picture));
+                }
+                viewModel.pictures.setValue(uris);
+            }
+        }
     }
 
     private void init() {
@@ -57,7 +76,7 @@ public class CreateActivity extends AppCompatActivity {
                         myCalendar.set(Calendar.YEAR, year);
                         myCalendar.set(Calendar.MONTH, monthOfYear);
                         myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                        String myFormat = "MM/dd/yy";
+                        String myFormat = "MM-dd-yyyy";
                         SimpleDateFormat format = new SimpleDateFormat(myFormat, Locale.US);
                         binding.getViewmodel().date.setValue(format.format(myCalendar.getTime()));
                     }

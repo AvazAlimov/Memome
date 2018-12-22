@@ -21,6 +21,17 @@ public interface MemoryService {
     );
 
     @Multipart
+    @POST("memories/update")
+    Call<Memory> update(
+            @Part MultipartBody.Part id,
+            @Part MultipartBody.Part account,
+            @Part MultipartBody.Part title,
+            @Part MultipartBody.Part content,
+            @Part MultipartBody.Part date,
+            @Part MultipartBody.Part[] pictures
+    );
+
+    @Multipart
     @POST("memories/get")
     Call<ArrayList<Memory>> get(@Part MultipartBody.Part account);
 }

@@ -3,17 +3,9 @@ package uz.nasiba.avaz.memome.ui.create;
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.database.Cursor;
 import android.databinding.Bindable;
 import android.net.Uri;
-import android.provider.MediaStore;
-import android.util.Log;
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
-
-import java.io.IOException;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -23,6 +15,7 @@ import uz.nasiba.avaz.memome.di.AppModule;
 import uz.nasiba.avaz.memome.utils.ObservableViewModel;
 
 public class CreateViewModel extends ObservableViewModel {
+    long id = 0;
     private CreateRepository repository;
     @Bindable
     public MutableLiveData<String> title = new MutableLiveData<>();
@@ -48,7 +41,7 @@ public class CreateViewModel extends ObservableViewModel {
         date.setValue(null);
     }
 
-    public void create() {
+    public void save() {
         if (!Objects.equals(title.getValue(), "") && !Objects.equals(content.getValue(), "")) {
             AppModule module = ((App) getApplication()).getAppModule();
             Memory memory = new Memory();
@@ -57,7 +50,12 @@ public class CreateViewModel extends ObservableViewModel {
             memory.setDate(date.getValue() == null ? "" : date.getValue());
             memory.setUid(repository.getUser(module.getDatabase()).getUid());
             memory.setUris(pictures.getValue());
-            repository.create(module, memory);
+            if (id == 0) {
+                repository.create(module, memory);
+            } else {
+                memory.setId(id);
+                repository.update(module, memory);
+            }
         }
     }
 }

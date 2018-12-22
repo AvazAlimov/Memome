@@ -74,4 +74,8 @@ class CreateRepository {
             }
         });
     }
+
+    void update(AppModule appModule, Memory memory) {
+
+    }
 }
