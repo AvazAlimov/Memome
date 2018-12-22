@@ -18,6 +18,7 @@ public class SettingsViewModel extends ObservableViewModel {
         language.setValue(Locale.getDefault().getLanguage());
     }
 
+    //Nasiba: change language
     public void changeLanguage(String code) {
         boolean newLanguage = !Locale.getDefault().getLanguage().equals(code);
         LocaleManager.setNewLocale(getApplication(), code);

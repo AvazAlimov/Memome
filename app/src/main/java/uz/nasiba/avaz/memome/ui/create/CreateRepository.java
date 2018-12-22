@@ -29,10 +29,12 @@ class CreateRepository {
         finished.setValue(false);
     }
 
+    //Avaz: get user info from db
     User getUser(AppDatabase database) {
         return database.getUserDao().getUser();
     }
 
+    //Avaz: create a new memory
     void create(AppModule appModule, Memory memory) {
         MultipartBody.Part account = MultipartBody.Part.createFormData("account", memory.getUid());
         MultipartBody.Part title = MultipartBody.Part.createFormData("title", memory.getTitle());
@@ -75,6 +77,7 @@ class CreateRepository {
         });
     }
 
+    //Nasiba: update a memo
     void update(AppModule appModule, Memory memory) {
         MultipartBody.Part id = MultipartBody.Part.createFormData("id", memory.getId() + "");
         MultipartBody.Part account = MultipartBody.Part.createFormData("account", memory.getUid());
@@ -118,6 +121,7 @@ class CreateRepository {
         });
     }
 
+    //Avaz: delete a memo
     void delete(AppModule appModule, long id) {
         Call<Void> call = appModule.getRetrofit().getMemoryService().delete(
                 MultipartBody.Part.createFormData("id", id + ""),

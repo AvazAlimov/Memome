@@ -18,6 +18,7 @@ class SignUpRepository {
         loading.setValue(false);
     }
 
+    //Avaz: signup an account
     void signup(final AppModule module, final User user) {
         loading.setValue(true);
         Call<User> call = module.getRetrofit().getAccountService().signup(user);

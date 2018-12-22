@@ -21,6 +21,7 @@ import java.util.Objects;
 
 import uz.nasiba.avaz.memome.R;
 
+//Avaz: Adapter for recycler view with pictures
 public class PicturesAdapter extends RecyclerView.Adapter<PicturesAdapter.ViewHolder> {
     private ArrayList<Uri> uris;
     private LayoutInflater inflater;
@@ -38,6 +39,7 @@ public class PicturesAdapter extends RecyclerView.Adapter<PicturesAdapter.ViewHo
         return new ViewHolder(inflater.inflate(R.layout.layout_picture, viewGroup, false), viewGroup);
     }
 
+    //Nasiba: init all listeners and info
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         Picasso.get()

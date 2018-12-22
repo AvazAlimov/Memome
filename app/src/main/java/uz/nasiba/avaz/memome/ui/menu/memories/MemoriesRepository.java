@@ -16,6 +16,7 @@ import uz.nasiba.avaz.memome.di.AppModule;
 class MemoriesRepository {
     MutableLiveData<ArrayList<Memory>> memories = new MutableLiveData<>();
 
+    //Avaz: load memories method
     void loadMemories(AppModule appModule) {
         User user = appModule.getDatabase().getUserDao().getUser();
         if (user != null) {

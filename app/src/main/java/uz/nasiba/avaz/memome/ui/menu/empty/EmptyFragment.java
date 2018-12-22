@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 
 import uz.nasiba.avaz.memome.R;
 
+//Nasiba: empty fragment for coming soon pages
 public class EmptyFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_empty, container, false);
     }
-
 }

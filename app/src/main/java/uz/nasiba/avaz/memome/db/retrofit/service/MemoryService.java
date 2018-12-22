@@ -9,7 +9,9 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import uz.nasiba.avaz.memome.db.room.entity.Memory;
 
+//Nasiba: REST API methods for managing memories
 public interface MemoryService {
+    //method for creating a memory
     @Multipart
     @POST("memories/create")
     Call<Memory> create(
@@ -20,6 +22,7 @@ public interface MemoryService {
             @Part MultipartBody.Part[] pictures
     );
 
+    //method for updating a memory
     @Multipart
     @POST("memories/update")
     Call<Memory> update(
@@ -31,10 +34,12 @@ public interface MemoryService {
             @Part MultipartBody.Part[] pictures
     );
 
+    //method for loading a memory
     @Multipart
     @POST("memories/get")
     Call<ArrayList<Memory>> get(@Part MultipartBody.Part account);
 
+    //method for deleting a memory
     @Multipart
     @POST("memories/delete")
     Call<Void> delete(@Part MultipartBody.Part id, @Part MultipartBody.Part account);

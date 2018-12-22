@@ -17,6 +17,7 @@ class SignInRepository {
         loading.setValue(false);
     }
 
+    //sign in an account
     void signin(final AppModule module, final User user) {
         loading.setValue(true);
         Call<User> call = module.getRetrofit().getAccountService().signin(user);

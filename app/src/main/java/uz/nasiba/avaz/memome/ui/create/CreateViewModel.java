@@ -37,10 +37,12 @@ public class CreateViewModel extends ObservableViewModel {
         pictures.setValue(new ArrayList<Uri>());
     }
 
+    //Avaz: calls delete method
     public void deleteDate() {
         date.setValue(null);
     }
 
+    //Avaz: calls save method
     public void save() {
         if (!Objects.equals(title.getValue(), "") && !Objects.equals(content.getValue(), "")) {
             AppModule module = ((App) getApplication()).getAppModule();
@@ -59,6 +61,7 @@ public class CreateViewModel extends ObservableViewModel {
         }
     }
 
+    //Nasiba: calls delete method
     void delete() {
         repository.delete(((App) getApplication()).getAppModule(), id);
     }

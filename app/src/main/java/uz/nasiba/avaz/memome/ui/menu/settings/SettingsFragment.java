@@ -23,6 +23,7 @@ public class SettingsFragment extends Fragment {
         return binding.getRoot();
     }
 
+    //Nasiba: initialization
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

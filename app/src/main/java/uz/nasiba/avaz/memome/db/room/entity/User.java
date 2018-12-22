@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
+//Nasiba: user class
 @Entity(tableName = "users")
 public class User {
     @NonNull

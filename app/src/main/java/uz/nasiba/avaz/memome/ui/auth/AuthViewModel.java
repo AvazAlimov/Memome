@@ -7,6 +7,7 @@ import uz.nasiba.avaz.memome.App;
 import uz.nasiba.avaz.memome.db.room.entity.User;
 import uz.nasiba.avaz.memome.utils.ObservableViewModel;
 
+//Business logic class for auth activity
 public class AuthViewModel extends ObservableViewModel {
     LiveData<User> user;
 

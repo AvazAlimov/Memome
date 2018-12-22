@@ -19,6 +19,7 @@ public class MemoriesViewModel extends ObservableViewModel {
         memories = repository.memories;
     }
 
+    //Avaz: calls load memories method
     void loadMemories() {
         repository.loadMemories(((App) getApplication()).getAppModule());
     }

@@ -28,6 +28,7 @@ public class SignUpViewModel extends ObservableViewModel {
         loading = repository.loading;
     }
 
+    //Avaz: calls signup method in data access layer
     public void signUp() {
         App app = getApplication();
         if (!Objects.equals(username.getValue(), "") && !Objects.equals(password.getValue(), "")) {

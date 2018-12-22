@@ -30,6 +30,7 @@ public class SignInViewModel extends ObservableViewModel {
         password.setValue("avaz23");
     }
 
+    //calls a sign in method in a data access layer
     public void signIn() {
         App app = getApplication();
         if (!Objects.equals(username.getValue(), "") && !Objects.equals(password.getValue(), "")) {

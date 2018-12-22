@@ -16,6 +16,7 @@ import uz.nasiba.avaz.memome.R;
 import uz.nasiba.avaz.memome.ui.auth.AuthActivity;
 import uz.nasiba.avaz.memome.utils.LocaleManager;
 
+//Nasiba: introductory activity
 public class IntroActivity extends AppCompatActivity {
     private int index = 0;
     private ArrayList<Integer> animations;
@@ -31,6 +32,7 @@ public class IntroActivity extends AppCompatActivity {
         update();
     }
 
+    //initialize animations and texts
     private void initialize() {
         animations = new ArrayList<>();
         animations.add(R.raw.intro_one);
@@ -50,6 +52,7 @@ public class IntroActivity extends AppCompatActivity {
         animationView = findViewById(R.id.animator);
     }
 
+    //update a layout after index changed
     private void update() {
         animationView.setAnimation(animations.get(index));
         animationView.resumeAnimation();
@@ -71,6 +74,7 @@ public class IntroActivity extends AppCompatActivity {
         }
     }
 
+    //switch to next
     public void next(View view) {
         if (index < animations.size() - 1) {
             index++;
@@ -78,6 +82,7 @@ public class IntroActivity extends AppCompatActivity {
         update();
     }
 
+    //switch to previous
     public void previous(View view) {
         if (index > 0) {
             index--;
@@ -85,6 +90,7 @@ public class IntroActivity extends AppCompatActivity {
         update();
     }
 
+    //finish activity and create a new task
     public void finish(View view) {
         Intent intent = new Intent(this, AuthActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

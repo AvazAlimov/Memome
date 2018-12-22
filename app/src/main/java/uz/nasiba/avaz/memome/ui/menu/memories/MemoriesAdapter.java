@@ -19,6 +19,7 @@ import uz.nasiba.avaz.memome.R;
 import uz.nasiba.avaz.memome.db.room.entity.Memory;
 import uz.nasiba.avaz.memome.ui.create.CreateActivity;
 
+//Avaz: Memory card manager adapter for recycler view
 class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHolder> {
     private ArrayList<Memory> memories;
     private LayoutInflater inflater;
@@ -34,6 +35,7 @@ class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHolder> {
         return new ViewHolder(inflater.inflate(R.layout.layout_memory, viewGroup, false));
     }
 
+    //Avaz: fill with information
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         final Memory memory = memories.get(i);

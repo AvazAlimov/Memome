@@ -66,6 +66,7 @@ public class CreateActivity extends AppCompatActivity {
         }
     }
 
+    //Nasiba: initialize all listeners and fields of viewmodel
     private void init() {
         binding.getRoot().findViewById(R.id.date).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,6 +151,7 @@ public class CreateActivity extends AppCompatActivity {
         });
     }
 
+    //Avaz: insert all selected pictures
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 2 && resultCode == AppCompatActivity.RESULT_OK) {
@@ -167,6 +169,7 @@ public class CreateActivity extends AppCompatActivity {
         }
     }
 
+    //Nasiba: method for returning back to main activity
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

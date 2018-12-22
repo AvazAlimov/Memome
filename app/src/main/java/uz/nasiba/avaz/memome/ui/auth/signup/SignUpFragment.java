@@ -18,15 +18,18 @@ import uz.nasiba.avaz.memome.databinding.FragmentSignupBinding;
 import uz.nasiba.avaz.memome.ui.auth.AuthActivity;
 import uz.nasiba.avaz.memome.ui.auth.signin.SignInFragment;
 
+//Nasiba: Signup fragment
 public class SignUpFragment extends Fragment {
     private FragmentSignupBinding binding;
 
+    //inflate layout
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_signup, container, false);
         return binding.getRoot();
     }
 
+    //bind view to databinding and set viewmodel
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

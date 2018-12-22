@@ -17,6 +17,7 @@ public class MenuViewModel extends ObservableViewModel {
         user = repository.getUser(((App) application).getAppModule().getDatabase());
     }
 
+    //calls logout method
     void logout() {
         repository.logout(((App) getApplication()).getAppModule().getDatabase());
     }

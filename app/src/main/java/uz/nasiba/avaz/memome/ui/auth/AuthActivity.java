@@ -40,6 +40,7 @@ public class AuthActivity extends AppCompatActivity {
         switchFragments(new SignInFragment());
     }
 
+    //Nasiba: method for removing and changing fragments
     public void switchFragments(Fragment fragment) {
         for (Fragment item : getSupportFragmentManager().getFragments()) {
             getSupportFragmentManager()
@@ -55,16 +56,19 @@ public class AuthActivity extends AppCompatActivity {
                 .commit();
     }
 
+    //Nasiba: close application without exiting
     @Override
     public void onBackPressed() {
         moveTaskToBack(true);
     }
 
+    //Nasiba: Load locale
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(LocaleManager.setLocale(base));
     }
 
+    //Nasiba: Set new locale
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
