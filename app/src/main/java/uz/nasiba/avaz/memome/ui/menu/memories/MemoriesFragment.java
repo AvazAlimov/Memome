@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -46,7 +45,7 @@ public class MemoriesFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), CreateActivity.class);
-                    getActivity().startActivityForResult(intent, 3);
+                    getActivity().startActivity(intent);
                 }
             });
             binding.getViewmodel().loadMemories();

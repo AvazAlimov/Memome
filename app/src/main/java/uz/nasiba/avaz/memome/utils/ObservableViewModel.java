@@ -2,7 +2,6 @@ package uz.nasiba.avaz.memome.utils;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.ViewModel;
 import android.databinding.Observable;
 import android.databinding.PropertyChangeRegistry;
 import android.support.annotation.NonNull;

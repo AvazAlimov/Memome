@@ -16,7 +16,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 
@@ -117,6 +116,7 @@ public class CreateActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
+                dialog.show();
             }
         });
 

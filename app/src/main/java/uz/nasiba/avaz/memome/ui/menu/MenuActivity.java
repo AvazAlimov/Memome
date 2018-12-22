@@ -47,8 +47,6 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        changeFragment(new MemoriesFragment(), R.string.memories);
-
         viewModel = ViewModelProviders.of(this, new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(MenuViewModel.class);
         viewModel.user.observe(this, new Observer<User>() {
             @Override
@@ -128,10 +126,8 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 3) {
-            changeFragment(new MemoriesFragment(), R.string.memories);
-        }
+    protected void onResume() {
+        super.onResume();
+        changeFragment(new MemoriesFragment(), R.string.memories);
     }
 }
