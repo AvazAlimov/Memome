@@ -1,5 +1,7 @@
 package uz.nasiba.avaz.memome.db.retrofit.service;
 
+import java.util.ArrayList;
+
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Multipart;
@@ -17,4 +19,8 @@ public interface MemoryService {
             @Part MultipartBody.Part date,
             @Part MultipartBody.Part[] pictures
     );
+
+    @Multipart
+    @POST("memories/get")
+    Call<ArrayList<Memory>> get(@Part MultipartBody.Part account);
 }
