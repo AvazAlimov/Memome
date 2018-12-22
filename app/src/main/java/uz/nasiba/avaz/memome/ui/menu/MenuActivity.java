@@ -46,7 +46,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        changeFragment(new MemoriesFragment());
+        changeFragment(new MemoriesFragment(), R.string.memories);
 
         viewModel = ViewModelProviders.of(this, new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(MenuViewModel.class);
         viewModel.user.observe(this, new Observer<User>() {
@@ -90,10 +90,10 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_memories:
-                changeFragment(new MemoriesFragment());
+                changeFragment(new MemoriesFragment(), R.string.memories);
                 break;
             case R.id.nav_settings:
-                changeFragment(new SettingsFragment());
+                changeFragment(new SettingsFragment(), R.string.settings);
                 break;
             case R.id.nav_logout:
                 viewModel.logout();
@@ -104,7 +104,8 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private void changeFragment(Fragment fragment) {
+    private void changeFragment(Fragment fragment, int title) {
+        setTitle(title);
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
 
