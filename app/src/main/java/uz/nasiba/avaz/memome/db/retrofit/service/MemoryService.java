@@ -3,6 +3,7 @@ package uz.nasiba.avaz.memome.db.retrofit.service;
 import java.util.ArrayList;
 
 import okhttp3.MultipartBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -34,4 +35,8 @@ public interface MemoryService {
     @Multipart
     @POST("memories/get")
     Call<ArrayList<Memory>> get(@Part MultipartBody.Part account);
+
+    @Multipart
+    @POST("memories/delete")
+    Call<Void> delete(@Part MultipartBody.Part id, @Part MultipartBody.Part account);
 }

@@ -117,4 +117,26 @@ class CreateRepository {
             }
         });
     }
+
+    void delete(AppModule appModule, long id) {
+        Call<Void> call = appModule.getRetrofit().getMemoryService().delete(
+                MultipartBody.Part.createFormData("id", id + ""),
+                MultipartBody.Part.createFormData("account", appModule.getDatabase().getUserDao().getUser().getUid())
+        );
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                if (response.isSuccessful()) {
+                    finished.setValue(true);
+                } else {
+                    error.setValue(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                error.setValue(t.getMessage());
+            }
+        });
+    }
 }

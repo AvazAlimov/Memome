@@ -15,7 +15,7 @@ import uz.nasiba.avaz.memome.di.AppModule;
 import uz.nasiba.avaz.memome.utils.ObservableViewModel;
 
 public class CreateViewModel extends ObservableViewModel {
-    long id = 0;
+    public long id = 0;
     private CreateRepository repository;
     @Bindable
     public MutableLiveData<String> title = new MutableLiveData<>();
@@ -57,5 +57,9 @@ public class CreateViewModel extends ObservableViewModel {
                 repository.update(module, memory);
             }
         }
+    }
+
+    void delete() {
+        repository.delete(((App) getApplication()).getAppModule(), id);
     }
 }
