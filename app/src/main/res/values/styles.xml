@@ -23,10 +23,19 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="MainStyle" parent="AppTheme.NoActionBar">
+    <style name="MainStyle.NoActionBar" parent="AppTheme.NoActionBar">
         <item name="colorPrimary">#FBC02D</item>
         <item name="colorPrimaryDark">#F9A825</item>
         <item name="colorAccent">#00574B</item>
     </style>
 
+    <style name="MainStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#FBC02D</item>
+        <item name="colorPrimaryDark">#F9A825</item>
+        <item name="colorAccent">#00574B</item>
+    </style>
+
+    <style name="DatePickerStyle" parent="Base.Theme.MaterialComponents.Light.Dialog">
+        <item name="colorAccent">#F9A825</item>
+    </style>
 </resources>

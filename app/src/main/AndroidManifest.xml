@@ -4,6 +4,8 @@
     package="uz.nasiba.avaz.memome">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".App"
@@ -30,6 +32,9 @@
         <activity
             android:name=".ui.menu.MenuActivity"
             android:label="@string/title_activity_menu"
+            android:theme="@style/MainStyle.NoActionBar" />
+        <activity
+            android:name=".ui.create.CreateActivity"
             android:theme="@style/MainStyle" />
     </application>
 

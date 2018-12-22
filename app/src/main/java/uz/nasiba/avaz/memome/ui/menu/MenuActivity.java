@@ -23,6 +23,7 @@ import android.widget.TextView;
 import uz.nasiba.avaz.memome.R;
 import uz.nasiba.avaz.memome.db.room.entity.User;
 import uz.nasiba.avaz.memome.ui.auth.AuthActivity;
+import uz.nasiba.avaz.memome.ui.menu.memories.MemoriesFragment;
 import uz.nasiba.avaz.memome.ui.menu.settings.SettingsFragment;
 import uz.nasiba.avaz.memome.utils.LocaleManager;
 
@@ -44,6 +45,8 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        changeFragment(new MemoriesFragment());
 
         viewModel = ViewModelProviders.of(this, new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(MenuViewModel.class);
         viewModel.user.observe(this, new Observer<User>() {
@@ -81,15 +84,14 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.nav_memories:
+                changeFragment(new MemoriesFragment());
+                break;
             case R.id.nav_settings:
                 changeFragment(new SettingsFragment());
                 break;
