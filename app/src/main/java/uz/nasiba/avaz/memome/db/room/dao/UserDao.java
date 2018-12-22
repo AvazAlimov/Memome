@@ -10,7 +10,10 @@ import uz.nasiba.avaz.memome.utils.BasicDao;
 @Dao
 public interface UserDao extends BasicDao<User> {
     @Query("SELECT * FROM users LIMIT 1")
-    LiveData<User> getUser();
+    LiveData<User> getUserAsync();
+
+    @Query("SELECT * FROM users LIMIT 1")
+    User getUser();
 
     @Query("DELETE FROM users")
     void drop();

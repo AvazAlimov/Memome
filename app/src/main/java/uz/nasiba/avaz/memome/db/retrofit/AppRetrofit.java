@@ -3,25 +3,27 @@ package uz.nasiba.avaz.memome.db.retrofit;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import uz.nasiba.avaz.memome.db.retrofit.service.AccountService;
+import uz.nasiba.avaz.memome.db.retrofit.service.MemoryService;
 
 public class AppRetrofit {
-    private Retrofit instance;
     private AccountService accountService;
+    private MemoryService memoryService;
 
     public AppRetrofit() {
-        instance = new Retrofit.Builder()
+        Retrofit instance = new Retrofit.Builder()
                 .baseUrl("http://nasiba.me:8000/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         accountService = instance.create(AccountService.class);
-    }
-
-    public Retrofit getInstance() {
-        return instance;
+        memoryService = instance.create(MemoryService.class);
     }
 
     public AccountService getAccountService() {
         return accountService;
+    }
+
+    public MemoryService getMemoryService() {
+        return memoryService;
     }
 }

@@ -10,6 +10,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -86,6 +87,24 @@ public class CreateActivity extends AppCompatActivity {
                     RecyclerView recyclerView = findViewById(R.id.container);
                     recyclerView.setLayoutManager(new GridLayoutManager(binding.getRoot().getContext(), 3));
                     recyclerView.setAdapter(new PicturesAdapter(binding.getRoot().getContext(), uris, binding.getViewmodel()));
+                }
+            }
+        });
+
+        binding.getViewmodel().finished.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean aBoolean) {
+                if (aBoolean != null && aBoolean) {
+                    finish();
+                }
+            }
+        });
+
+        binding.getViewmodel().error.observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String error) {
+                if (error != null) {
+                    Snackbar.make(binding.getRoot(), error, Snackbar.LENGTH_LONG).show();
                 }
             }
         });

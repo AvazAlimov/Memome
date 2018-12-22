@@ -147,6 +147,7 @@
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/save"
+                    android:onClick="@{() -> viewmodel.create()}"
                     android:src="@drawable/ic_save" />
             </LinearLayout>
         </android.support.v7.widget.CardView>

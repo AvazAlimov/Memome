@@ -7,6 +7,6 @@ import uz.nasiba.avaz.memome.db.room.entity.User;
 
 class AuthRepository {
     LiveData<User> getUser(AppDatabase database) {
-        return database.getUserDao().getUser();
+        return database.getUserDao().getUserAsync();
     }
 }
