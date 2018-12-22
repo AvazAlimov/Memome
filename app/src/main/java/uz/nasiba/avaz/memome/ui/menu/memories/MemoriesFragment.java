@@ -46,7 +46,7 @@ public class MemoriesFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), CreateActivity.class);
-                    getActivity().startActivity(intent);
+                    getActivity().startActivityForResult(intent, 3);
                 }
             });
             binding.getViewmodel().loadMemories();

@@ -76,6 +76,45 @@ class CreateRepository {
     }
 
     void update(AppModule appModule, Memory memory) {
+        MultipartBody.Part id = MultipartBody.Part.createFormData("id", memory.getId() + "");
+        MultipartBody.Part account = MultipartBody.Part.createFormData("account", memory.getUid());
+        MultipartBody.Part title = MultipartBody.Part.createFormData("title", memory.getTitle());
+        MultipartBody.Part content = MultipartBody.Part.createFormData("content", memory.getContent());
+        MultipartBody.Part date = MultipartBody.Part.createFormData("date", memory.getDate());
 
+        MultipartBody.Part[] pictures = null;
+        if (memory.getUris() != null) {
+            pictures = new MultipartBody.Part[memory.getUris().size()];
+            for (int i = 0; i < memory.getUris().size(); i++) {
+                try {
+                    File file = File.createTempFile("img", "tmp");
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(appModule.getApp().getContentResolver(), memory.getUris().get(i));
+                    BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(file));
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
+                    bitmap.recycle();
+                    RequestBody body = RequestBody.create(MediaType.parse("image"), file);
+                    pictures[i] = (MultipartBody.Part.createFormData("pictures[" + i + "]", memory.getUris().get(i).getPath(), body));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        Call<Memory> call = appModule.getRetrofit().getMemoryService().update(id, account, title, content, date, pictures);
+        call.enqueue(new Callback<Memory>() {
+            @Override
+            public void onResponse(@NonNull Call<Memory> call, @NonNull Response<Memory> response) {
+                if (response.isSuccessful()) {
+                    finished.setValue(true);
+                } else {
+                    error.setValue(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Memory> call, @NonNull Throwable t) {
+                error.setValue(t.getMessage());
+            }
+        });
     }
 }

@@ -23,6 +23,7 @@ import android.widget.TextView;
 import uz.nasiba.avaz.memome.R;
 import uz.nasiba.avaz.memome.db.room.entity.User;
 import uz.nasiba.avaz.memome.ui.auth.AuthActivity;
+import uz.nasiba.avaz.memome.ui.menu.empty.EmptyFragment;
 import uz.nasiba.avaz.memome.ui.menu.memories.MemoriesFragment;
 import uz.nasiba.avaz.memome.ui.menu.settings.SettingsFragment;
 import uz.nasiba.avaz.memome.utils.LocaleManager;
@@ -92,6 +93,12 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_memories:
                 changeFragment(new MemoriesFragment(), R.string.memories);
                 break;
+            case R.id.nav_labels:
+                changeFragment(new EmptyFragment(), R.string.labels);
+                break;
+            case R.id.nav_archives:
+                changeFragment(new EmptyFragment(), R.string.archives);
+                break;
             case R.id.nav_settings:
                 changeFragment(new SettingsFragment(), R.string.settings);
                 break;
@@ -118,5 +125,13 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         LocaleManager.setLocale(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 3) {
+            changeFragment(new MemoriesFragment(), R.string.memories);
+        }
     }
 }
